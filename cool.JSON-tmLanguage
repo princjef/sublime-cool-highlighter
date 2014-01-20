@@ -1,0 +1,92 @@
+// [PackageDev] target_format: plist, ext: tmLanguage
+{
+	"name": "Cool",
+	"scopeName": "source.cool",
+	"fileTypes": ["cl"],
+	"uuid": "963eee5d-986b-456c-8fbd-d81e05548a88",
+
+	"patterns": [
+		{
+			"name": "comment.line.cool",
+			"begin": "--",
+			"end": "$",
+			"comment": "Line Comments"
+		}, {
+			"name": "comment.block.cool",
+			"begin": "\\(\\*",
+			"end": "\\*\\)",
+			"comment": "Block Comments"
+		}, {
+			"name": "string.cool",
+			"begin": "(?<!\\\\)\"",
+			"end": "(?<!\\\\)\"",
+			"comment": "Strings",
+			"patterns": [
+				{ "include": "$self" },
+				{
+					"name": "constant.character.escape.cool",
+					"match": "\\\\(n|t|\")",
+					"comment": "Escape Sequences"
+				} 
+			]
+		}, {
+			"name": "definition.class.inherits.cool",
+			"match": "(\\s+|^)(Class|class)\\s+([A-Z][A-Za-z0-9_]*)(\\s+(inherits|Inherits)\\s+([A-Z][A-Za-z0-9_]*))?\\s+",
+			"captures": {
+				"2": { "name": "keyword.cool" },
+				"3": { "name": "entity.name.type.cool" },
+				"5": { "name": "keyword.cool" },
+				"6": { "name": "entity.name.type.cool" }
+			},
+			"comment": "Class definition"
+		}, {
+			"name": "definition.method.cool",
+			"match": "(?:(^|;|{)\\s*)([a-z][A-Za-z0-9_]*)\\(\\s*(([a-z][A-Za-z0-9_]*)\\s*:\\s*([A-Z][A-Za-z0-9_]*))?(\\s*,\\s*([a-z][A-Za-z0-9_]*)\\s*:\\s*([A-Z][A-Za-z0-9_]*))*\\s*\\)\\s*:\\s*([A-Z][A-Za-z0-9_]*)",
+			"captures": {
+				"2": { "name": "entity.name.function.cool" },
+				"4": { "name": "variable.parameter.cool" },
+				"5": { "name": "storage.type.cool" },
+				"7": { "name": "variable.parameter.cool" },
+				"8": { "name": "storage.type.cool" },
+				"9": { "name": "storage.type.cool" }
+			}
+		}, {
+			"name": "definition.assignment.cool",
+			"match": "(?:^\\s*|;\\s*|{\\s*|\\s+)(([a-z][A-Za-z0-9_]*)\\s*:\\s*([A-Z][A-Za-z0-9_]*))",
+			"captures": {
+				"3": { "name": "storage.type.cool" }
+			}
+		}, {
+			"name": "creation.cool",
+			"match": "(?:<-|\\+|-|\\*|\/|=|<=|<|\\s|\\(|\\{|;)(new)\\s+([A-Z][A-Za-z0-9_]*)(?:<-|\\+|-|\\*|\/|=|<=|<|\\s|\\)|\\{|;)",
+			"captures": {
+				"1": { "name": "keyword.operator.cool" },
+				"2": { "name": "storage.type.cool" }
+			}
+		}, {
+			"name": "number.cool",
+			"match": "((<-|\\+|-|\\*|\/|=|<=|<)|\\s)\\s*([0-9]+)\\s*((\\+|-|\\*|\/|=|<=|<)|\\s)",
+			"captures": {
+				"2": { "name": "keyword.operator.cool" },
+				"3": { "name": "constant.numeric.cool" },
+				"5": { "name": "keyword.operator.cool" }
+			}
+		}, {
+			"name": "keyword.operator.cool",
+			"match": "(<-|\\+|-|\\*|\/|=|<=|<)",
+			"comment": "Operators"
+		}, {
+			"name": "definition.constants.words.cool",
+			"match": "(?<=<-|\\+|-|\\*|\/|=|<=|<|\\s|\\(|\\{|;)(true|false)(?=<-|\\+|-|\\*|\/|=|<=|<|\\s|\\)|\\{|;)",
+			"comment": "Word Constants",
+			"captures": {
+				"1": { "name": "constant.language.cool" }
+			}
+
+		}, {
+			"name": "keyword.cool",
+			"match": "(?<=\\s|^|\\(|;)(isvoid|while|not|loop|if|else|let|in|then|fi|pool)(?=\\s|$|\\)|;)",
+			"comment": "Reserved words"
+		}
+	]
+}
