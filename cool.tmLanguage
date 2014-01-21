@@ -154,7 +154,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?:&lt;-|\+|-|\*|/|=|&lt;=|&lt;|\s|\(|\{|;)(new)\s+([A-Z][A-Za-z0-9_]*)(?:&lt;-|\+|-|\*|/|=|&lt;=|&lt;|\s|\)|\{|;)</string>
+			<string>(?:&lt;-|\+|-|\*|/|=|&lt;=|&lt;|=&gt;|~|\s|\(|\{|;)(new)\s+([A-Z][A-Za-z0-9_]*)(?:&lt;-|\+|-|\*|/|=|&lt;=|&lt;|=&gt;|\s|\)|\{|;)</string>
 			<key>name</key>
 			<string>creation.cool</string>
 		</dict>
@@ -178,17 +178,9 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>((&lt;-|\+|-|\*|/|=|&lt;=|&lt;)|\s)\s*([0-9]+)\s*((\+|-|\*|/|=|&lt;=|&lt;)|\s)</string>
+			<string>((&lt;-|\+|-|\*|/|=|&lt;=|&lt;|=&gt;|~)|\s)\s*([0-9]+)\s*((\+|-|\*|/|=|&lt;=|&lt;|=&gt;)|\s)</string>
 			<key>name</key>
 			<string>number.cool</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>Operators</string>
-			<key>match</key>
-			<string>(&lt;-|\+|-|\*|/|=|&lt;=|&lt;)</string>
-			<key>name</key>
-			<string>keyword.operator.cool</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -202,15 +194,23 @@
 			<key>comment</key>
 			<string>Word Constants</string>
 			<key>match</key>
-			<string>(?&lt;=&lt;-|\+|-|\*|/|=|&lt;=|&lt;|\s|\(|\{|;)(true|false)(?=&lt;-|\+|-|\*|/|=|&lt;=|&lt;|\s|\)|\{|;)</string>
+			<string>(?&lt;=&lt;-|\+|-|\*|/|=|&lt;=|&lt;|=&gt;|~|\s|\(|\{|;)(t[Rr][Uu][Ee]|f[Aa][Ll][Ss][Ee])(?=&lt;-|\+|-|\*|/|=|&lt;=|&lt;|=&gt;|\s|\)|\{|;)</string>
 			<key>name</key>
 			<string>definition.constants.words.cool</string>
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>Operators</string>
+			<key>match</key>
+			<string>(&lt;-|\+|-|\*|/|=|&lt;=|&lt;|=&gt;|~)</string>
+			<key>name</key>
+			<string>keyword.operator.cool</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>Reserved words</string>
 			<key>match</key>
-			<string>(?&lt;=\s|^|\(|;)(isvoid|while|not|loop|if|else|let|in|then|fi|pool)(?=\s|$|\)|;)</string>
+			<string>(?&lt;=\s|^|\(|;)(isvoid|while|not|loop|if|else|let|in|then|fi|pool|case|of|esac)(?=\s|$|\)|;)</string>
 			<key>name</key>
 			<string>keyword.cool</string>
 		</dict>

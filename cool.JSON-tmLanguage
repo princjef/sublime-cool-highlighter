@@ -58,34 +58,33 @@
 			}
 		}, {
 			"name": "creation.cool",
-			"match": "(?:<-|\\+|-|\\*|\/|=|<=|<|\\s|\\(|\\{|;)(new)\\s+([A-Z][A-Za-z0-9_]*)(?:<-|\\+|-|\\*|\/|=|<=|<|\\s|\\)|\\{|;)",
+			"match": "(?:<-|\\+|-|\\*|\/|=|<=|<|=>|~|\\s|\\(|\\{|;)(new)\\s+([A-Z][A-Za-z0-9_]*)(?:<-|\\+|-|\\*|\/|=|<=|<|=>|\\s|\\)|\\{|;)",
 			"captures": {
 				"1": { "name": "keyword.operator.cool" },
 				"2": { "name": "storage.type.cool" }
 			}
 		}, {
 			"name": "number.cool",
-			"match": "((<-|\\+|-|\\*|\/|=|<=|<)|\\s)\\s*([0-9]+)\\s*((\\+|-|\\*|\/|=|<=|<)|\\s)",
+			"match": "((<-|\\+|-|\\*|\/|=|<=|<|=>|~)|\\s)\\s*([0-9]+)\\s*((\\+|-|\\*|\/|=|<=|<|=>)|\\s)",
 			"captures": {
 				"2": { "name": "keyword.operator.cool" },
 				"3": { "name": "constant.numeric.cool" },
 				"5": { "name": "keyword.operator.cool" }
 			}
 		}, {
-			"name": "keyword.operator.cool",
-			"match": "(<-|\\+|-|\\*|\/|=|<=|<)",
-			"comment": "Operators"
-		}, {
 			"name": "definition.constants.words.cool",
-			"match": "(?<=<-|\\+|-|\\*|\/|=|<=|<|\\s|\\(|\\{|;)(true|false)(?=<-|\\+|-|\\*|\/|=|<=|<|\\s|\\)|\\{|;)",
+			"match": "(?<=<-|\\+|-|\\*|\/|=|<=|<|=>|~|\\s|\\(|\\{|;)(t[Rr][Uu][Ee]|f[Aa][Ll][Ss][Ee])(?=<-|\\+|-|\\*|\/|=|<=|<|=>|\\s|\\)|\\{|;)",
 			"comment": "Word Constants",
 			"captures": {
 				"1": { "name": "constant.language.cool" }
 			}
-
+		}, {
+			"name": "keyword.operator.cool",
+			"match": "(<-|\\+|-|\\*|\/|=|<=|<|=>|~)",
+			"comment": "Operators"
 		}, {
 			"name": "keyword.cool",
-			"match": "(?<=\\s|^|\\(|;)(isvoid|while|not|loop|if|else|let|in|then|fi|pool)(?=\\s|$|\\)|;)",
+			"match": "(?<=\\s|^|\\(|;)(isvoid|while|not|loop|if|else|let|in|then|fi|pool|case|of|esac)(?=\\s|$|\\)|;)",
 			"comment": "Reserved words"
 		}
 	]
