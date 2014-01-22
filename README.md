@@ -17,3 +17,10 @@ Bug Reporting
 ----
 
 This syntax highlighter is still in development. If you discover an issue with the highlighter, please report it in the [issues](https://github.com/princjef/sublime-cool-highlighter/issues) section of this repository. Feel free to fork and pull request if you would like to fix a bug/add a feature yourself.
+
+Contributing
+-------
+
+If you would like to contribute to the repository (either via bugfixes or added awesomeness), you can fork the repository and submit a pull request with your changes. The highlighter is written in conjunction with [AAAPackageDev](https://github.com/SublimeText/AAAPackageDev), so take a look there if you want to learn how to edit the highlighter. There is also a [tutorial](http://docs.sublimetext.info/en/latest/extensibility/syntaxdefs.html) from Sublime Text to help you out.
+
+Whatever you decide to do, please make changes to the `cool.JSON-tmLanguage` file, then convert it to a `.tmLanguage` file using [AAAPackageDev](https://github.com/SublimeText/AAAPackageDev). Any pull requests that change `cool.tmLanguage` without changing `cool.JSON-tmLanguage` will be rejected. Thanks for your help!
