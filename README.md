@@ -1,7 +1,7 @@
-Cool (Classroom Object-Oriented Language) Syntax Highlighter for Sublime Text
+Cool Syntax Highlighter for Sublime Text
 ========================
 
-A basic syntax highlighter for the Cool programming language.
+A basic syntax highlighter for the Cool (Classroom Object-Oriented Language) programming language.
 
 Installation
 -----------
