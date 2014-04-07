@@ -21,21 +21,8 @@
 			<string>comment.line.cool</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>\(\*</string>
-			<key>comment</key>
-			<string>Block Comments</string>
-			<key>end</key>
-			<string>\*\)</string>
-			<key>name</key>
-			<string>comment.block.cool</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>$self</string>
-				</dict>
-			</array>
+			<key>include</key>
+			<string>#block_comment</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -193,6 +180,27 @@
 			<string>storage.type.cool</string>
 		</dict>
 	</array>
+	<key>repository</key>
+	<dict>
+		<key>block_comment</key>
+		<dict>
+			<key>begin</key>
+			<string>\(\*</string>
+			<key>comment</key>
+			<string>Block Comments</string>
+			<key>end</key>
+			<string>\*\)</string>
+			<key>name</key>
+			<string>comment.block.cool</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#block_comment</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 	<key>scopeName</key>
 	<string>source.cool</string>
 	<key>uuid</key>
