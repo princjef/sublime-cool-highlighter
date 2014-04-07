@@ -5,6 +5,18 @@
 	"fileTypes": ["cl"],
 	"uuid": "963eee5d-986b-456c-8fbd-d81e05548a88",
 
+	"repository": {
+		"block_comment": {
+			"comment": "Block Comments",
+			"name": "comment.block.cool",
+			"begin": "\\(\\*",
+			"end": "\\*\\)",
+			"patterns": [
+				{ "include": "#block_comment" }
+			]
+		}
+	},
+
 	"patterns": [
 		{
 			"comment": "Line Comments",
@@ -12,13 +24,7 @@
 			"begin": "--",
 			"end": "$"
 		}, {
-			"comment": "Block Comments",
-			"name": "comment.block.cool",
-			"begin": "\\(\\*",
-			"end": "\\*\\)",
-			"patterns": [
-				{ "include": "$self" }
-			]
+			"include": "#block_comment"
 		}, {
 			"comment": "Strings",
 			"name": "string.cool",
