@@ -29,6 +29,13 @@
 			<string>\*\)</string>
 			<key>name</key>
 			<string>comment.block.cool</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>$self</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -49,7 +56,7 @@
 					<key>comment</key>
 					<string>Escape Sequences</string>
 					<key>match</key>
-					<string>\\(n|t|")</string>
+					<string>\\(n|t)</string>
 					<key>name</key>
 					<string>constant.character.escape.cool</string>
 				</dict>
@@ -58,22 +65,22 @@
 		<dict>
 			<key>captures</key>
 			<dict>
-				<key>2</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.cool</string>
 				</dict>
-				<key>3</key>
+				<key>2</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.type.cool</string>
 				</dict>
-				<key>5</key>
+				<key>4</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.cool</string>
 				</dict>
-				<key>6</key>
+				<key>5</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.type.cool</string>
@@ -82,17 +89,27 @@
 			<key>comment</key>
 			<string>Class definition</string>
 			<key>match</key>
-			<string>(\s+|^)(Class|class)\s+([A-Z][A-Za-z0-9_]*)(\s+(inherits|Inherits)\s+([A-Z][A-Za-z0-9_]*))?\s+</string>
+			<string>\b((?i:class))\s+([A-Z][A-Za-z0-9_]*)(\s+((?i:inherits))\s+([A-Z][A-Za-z0-9_]*))?\b</string>
 			<key>name</key>
-			<string>definition.class.inherits.cool</string>
+			<string>definition.class.cool</string>
 		</dict>
 		<dict>
 			<key>captures</key>
 			<dict>
-				<key>2</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.function.cool</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.cool</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.cool</string>
 				</dict>
 				<key>4</key>
 				<dict>
@@ -104,59 +121,18 @@
 					<key>name</key>
 					<string>storage.type.cool</string>
 				</dict>
-				<key>7</key>
-				<dict>
-					<key>name</key>
-					<string>variable.parameter.cool</string>
-				</dict>
-				<key>8</key>
-				<dict>
-					<key>name</key>
-					<string>storage.type.cool</string>
-				</dict>
-				<key>9</key>
+				<key>6</key>
 				<dict>
 					<key>name</key>
 					<string>storage.type.cool</string>
 				</dict>
 			</dict>
+			<key>comment</key>
+			<string>Method definition</string>
 			<key>match</key>
-			<string>(?:(^|;|{)\s*)([a-z][A-Za-z0-9_]*)\(\s*(([a-z][A-Za-z0-9_]*)\s*:\s*([A-Z][A-Za-z0-9_]*))?(\s*,\s*([a-z][A-Za-z0-9_]*)\s*:\s*([A-Z][A-Za-z0-9_]*))*\s*\)\s*:\s*([A-Z][A-Za-z0-9_]*)</string>
+			<string>\b([a-z][A-Za-z0-9_]*)\s*\(\s*(?:([a-z][A-Za-z0-9_]*)\s*:\s*([A-Z][A-Za-z0-9_]*))?(?:\s*,\s*([a-z][A-Za-z0-9_]*)\s*:\s*([A-Z][A-Za-z0-9_]*))*\s*\)\s*:\s*([A-Z][A-Za-z0-9_]*)\b</string>
 			<key>name</key>
 			<string>definition.method.cool</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>storage.type.cool</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>(?:^\s*|;\s*|{\s*|\s+)(([a-z][A-Za-z0-9_]*)\s*:\s*([A-Z][A-Za-z0-9_]*))</string>
-			<key>name</key>
-			<string>definition.assignment.cool</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.operator.cool</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>storage.type.cool</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>(?:&lt;-|\+|-|\*|/|=|&lt;=|&lt;|=&gt;|~|\s|\(|\{|;)(new)\s+([A-Z][A-Za-z0-9_]*)(?:&lt;-|\+|-|\*|/|=|&lt;=|&lt;|=&gt;|\s|\)|\{|;)</string>
-			<key>name</key>
-			<string>creation.cool</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -177,42 +153,44 @@
 					<string>keyword.operator.cool</string>
 				</dict>
 			</dict>
+			<key>comment</key>
+			<string>Integer literal</string>
 			<key>match</key>
-			<string>((&lt;-|\+|-|\*|/|=|&lt;=|&lt;|=&gt;|~)|\s)\s*([0-9]+)\s*((\+|-|\*|/|=|&lt;=|&lt;|=&gt;)|\s)</string>
+			<string>\b([1-9][0-9]*)\b</string>
 			<key>name</key>
 			<string>number.cool</string>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>constant.language.cool</string>
-				</dict>
-			</dict>
 			<key>comment</key>
-			<string>Word Constants</string>
+			<string>Boolean Constants</string>
 			<key>match</key>
-			<string>(?&lt;=&lt;-|\+|-|\*|/|=|&lt;=|&lt;|=&gt;|~|\s|\(|\{|;)(t[Rr][Uu][Ee]|f[Aa][Ll][Ss][Ee])(?=&lt;-|\+|-|\*|/|=|&lt;=|&lt;|=&gt;|\s|\)|\{|;)</string>
+			<string>\b((t(?i:rue))|(f(?i:alse)))</string>
 			<key>name</key>
-			<string>definition.constants.words.cool</string>
+			<string>constant.language.cool</string>
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string>Operators</string>
+			<string>Language operators</string>
 			<key>match</key>
-			<string>(&lt;-|\+|-|\*|/|=|&lt;=|&lt;|=&gt;|~)</string>
+			<string>(=&gt;|&lt;-|&lt;=|@|/|&lt;|-|~|=|\+|\*)</string>
 			<key>name</key>
 			<string>keyword.operator.cool</string>
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string>Reserved words</string>
+			<string>Control flow tokens</string>
 			<key>match</key>
-			<string>(?&lt;=\s|^|\(|;)(isvoid|while|not|loop|if|else|let|in|then|fi|pool|case|of|esac)(?=\s|$|\)|;)</string>
+			<string>\b(?i:case|class|else|esac|fi|if|in|inherits|isvoid|let|loop|new|not|of|pool|then|while)\b</string>
 			<key>name</key>
-			<string>keyword.cool</string>
+			<string>keyword.control.cool</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Type identifier</string>
+			<key>match</key>
+			<string>\b([A-Z][A-Za-z0-9_]*)</string>
+			<key>name</key>
+			<string>storage.type.cool</string>
 		</dict>
 	</array>
 	<key>scopeName</key>
