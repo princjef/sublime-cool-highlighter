@@ -31,7 +31,6 @@
 			"begin": "(?<!\\\\)\"",
 			"end": "(?<!\\\\)\"",
 			"patterns": [
-				{ "include": "$self" },
 				{
 					"comment": "Escape Sequences",
 					"name": "constant.character.escape.cool",

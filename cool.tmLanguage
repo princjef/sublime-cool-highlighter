@@ -36,10 +36,6 @@
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>include</key>
-					<string>$self</string>
-				</dict>
-				<dict>
 					<key>comment</key>
 					<string>Escape Sequences</string>
 					<key>match</key>
